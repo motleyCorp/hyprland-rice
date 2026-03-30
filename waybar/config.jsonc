@@ -1,0 +1,164 @@
+{
+  "layer": "bottom",
+  "height": 36,
+  "modules-left": ["hyprland/workspaces", "network", "wlr/taskbar"],
+  "modules-center": [
+    "custom/left-arrow-dark-1",
+    "clock#1",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark-2",
+    "clock#2",
+    "custom/right-arrow-dark-1",
+    "custom/right-arrow-light",
+    "clock#3",
+    "custom/right-arrow-dark-2"
+  ],
+  "modules-right": ["pulseaudio", "cpu", "memory", "backlight", "battery"],
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+    "tooltip": false,
+    "persistent-workspaces": {
+        "1": "一", 
+        "2": "二", 
+        "3": "三", 
+        "4": "四", 
+        "5": "五", 
+        "6": "六", 
+        "7": "七", 
+        "8": "八", 
+        "9": "九", 
+        "10": "十"
+    }
+  },
+  
+  "clock#1": {
+    "tooltip": false,
+    "format": "{:%a}"
+  },
+  "clock#2": {
+    "tooltip": false,
+    "format": "{:%H:%M}"
+  },
+  "clock#3": {
+    "tooltip": false,
+    "format": "{:%m-%d}"
+  },
+  "custom/left-arrow-dark-1": {
+    "tooltip": false,
+    "format": ""
+  },
+  "custom/left-arrow-dark-2": {
+    "tooltip": false,
+    "format": ""
+  },
+  "custom/left-arrow-light": {
+    "tooltip": false,
+    "format": ""
+  },
+  "custom/right-arrow-dark-1": {
+    "tooltip": false,
+    "format": ""
+  },
+  "custom/right-arrow-dark-2": {
+    "tooltip": false,
+    "format": ""
+  },
+  "custom/right-arrow-light": {
+    "tooltip": false,
+    "format": ""
+  },
+  "cpu": {
+      "format": "  {usage}%",
+      "tooltip": false,
+      "interval": 1,
+      "min-length": 6
+  },
+
+  "memory": {
+      "format": "   {}%",
+      "tooltip": false,
+      "min-length": 6
+  },
+  "temperature": {
+      "critical-threshold": 80,
+      "format": "{temperatureC}°C ",
+      "tooltip": false,
+      "min-length": 6
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", ""],
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "tooltip": false,
+    "min-length": 6
+  },
+  "battery": {
+    "full-at": 100,
+    "design-capacity": false,
+    "states": {
+      "good": 95,
+      "warning": 15,
+      "critical": 5
+    },
+    "format": "{icon} {capacity}%",
+    "tooltip": false,
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
+    "min-length": 6
+  },
+  
+  "network": {
+      "format-wifi": "  ",
+      "format-ethernet": "  ",
+      "format-disconnected": "睊",
+      "tooltip": false,
+      "on-click": "nm-connection-editor",
+      "on-click-right": "wofi-wifi-menu"  
+  },
+  
+    "wlr/taskbar": {
+        "format": "{icon}",
+		//"icon-size": ${i_task},
+        "spacing": 0,
+		"tooltip-format": "{title}",
+		"on-click": "activate",
+		"on-click-right": "close",
+		"ignore-list": [
+			"Alacritty",
+			"xdm-app"
+		],
+		"app_ids-mapping": {
+			"firefoxdeveloperedition": "firefox-developer-edition"
+		}
+	},
+
+  
+  "pulseaudio": {
+    "tooltip": false,
+    "scroll-step": 1,
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-bluetooth-muted": "婢 ",
+    "format-muted": "婢",
+    "format-icons": {
+        "handsfree": "",
+        "headset": "",
+        "headphones": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+    },
+    "on-click": "pamixer -t",
+    "on-scroll-up": "pamixer -d 1",
+    "on-scroll-down": "pamixer -i 1",
+    "min-length": 6
+  }
+}
+
